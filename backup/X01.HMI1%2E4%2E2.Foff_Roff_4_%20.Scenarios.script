@@ -1,0 +1,6448 @@
+$scenarios {
+	$timeunit ms
+	$worktasks {
+		$worktask ASW_ACS_step {
+			$cycletime 100
+		}
+		$worktask ASW_DCS_step {
+			$cycletime 100
+		}
+		$worktask ASW_FACS_step {
+			$cycletime 100
+		}
+		$worktask ASW_FAS_step {
+			$cycletime 100
+		}
+		$worktask ASW_FBGE_step {
+			$cycletime 100
+		}
+		$worktask ASW_FOME_step {
+			$cycletime 100
+		}
+		$worktask ASW_FSTC_step {
+			$cycletime 100
+		}
+		$worktask ASW_IME_step {
+			$cycletime 100
+		}
+		$worktask ASW_RACS_step {
+			$cycletime 100
+		}
+		$worktask ASW_RAS_step {
+			$cycletime 100
+		}
+		$worktask ASW_RBGE_step {
+			$cycletime 100
+		}
+		$worktask ASW_ROME_step {
+			$cycletime 100
+		}
+		$worktask ASW_RSTC_step {
+			$cycletime 100
+		}
+		$worktask ASW_SS_step {
+			$cycletime 100
+		}
+		$worktask ASW_SSS_step {
+			$cycletime 100
+		}
+	}
+
+	$scenario 1 {
+		$name "初始化"
+		$uuid "ab8222fa-cf3a-4a48-bad3-2bb8518b790c"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 2 {
+		$name "MAX除霜"
+		$uuid "1f560e8c-fba6-4c0a-86c9-d8b0b9bdf012"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 1
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 1
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 9
+				VeFOME_FrtACOtltMdExp_enum = 4
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 22
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 1
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 9
+				VeFOME_FrtACOtltMdExp_enum = 4
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 22
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 3 {
+		$name "模式"
+		$uuid "ad76dcb9-f886-40aa-87d1-f74764954609"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 2
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 1
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 1
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 4 {
+		$name "AUTO"
+		$uuid "d5866de9-1e7f-47b0-bed4-dc5427076ac0"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 1
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 1
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 10
+				VeFOME_FrtACOtltMdExp_enum = 7
+				VeIME_ACInltMdExp_enum = 2
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 1
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 10
+				VeFOME_FrtACOtltMdExp_enum = 7
+				VeIME_ACInltMdExp_enum = 2
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 5 {
+		$name "主驾设置温度"
+		$uuid "032895a8-f2b8-4f1c-98ae-b3dcc39cd41f"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 6 {
+		$name "风量"
+		$uuid "19842717-7186-4baf-8aa4-5c011fb60e68"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 4
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 4
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 4
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 7 {
+		$name "A/C按键 "
+		$uuid "5535ce7b-7476-4c38-8152-00e1a5c6c4fb"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 1
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 8 {
+		$name "副驾设置温度"
+		$uuid "694ce828-b311-4fb7-b86b-98e5d2d6f2a8"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 25
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 25
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 25
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 9 {
+		$name "SYNC"
+		$uuid "2804c659-b610-4c7a-96f3-be979f5b9b0b"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 1
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 1
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 22
+				VfRSTC_RrACSetTempSts_C = 22
+			}
+		}
+	}
+
+	$scenario 10 {
+		$name "前排开关机"
+		$uuid "159f0480-350f-42df-a0b6-288b6b4147c6"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 1
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 11 {
+		$name "后排AUTO"
+		$uuid "6edbcc00-fbd8-476b-b493-98ac8503265c"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 12 {
+		$name "后排设置温度"
+		$uuid "697ba046-9a91-44ee-8857-93f66c68ff87"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 25
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 25
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 25
+			}
+		}
+	}
+
+	$scenario 13 {
+		$name "后排风量"
+		$uuid "48113c4a-dcce-4cb2-b59d-167a09d8501e"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 2
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 2
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 2
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 2
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 5
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 5
+				VeROME_RrACOtltMdExp_enum = 2
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeROMM_RrACAirOtltModeSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 5
+				VeROME_RrACOtltMdExp_enum = 2
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 14 {
+		$name "后排模式"
+		$uuid "c050e2f5-b078-4aff-b2c4-1b08eed7f23b"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 5
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 5
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 5
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 3
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 5
+				VeROME_RrACOtltMdExp_enum = 2
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VeRBTM_RrACBlwrGearManuSts_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 5
+				VeROME_RrACOtltMdExp_enum = 2
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+
+	$scenario 15 {
+		$name "后排开关机"
+		$uuid "48d3b535-828c-4842-86ee-d3e702e2a117"
+
+		$timestep $init {
+			$call ASW_SS_initialize()
+			$call ASW_RSTC_initialize()
+			$call ASW_RBGE_initialize()
+			$call ASW_RAS_initialize()
+			$call ASW_IME_initialize()
+			$call ASW_FSTC_initialize()
+			$call ASW_FBGE_initialize()
+			$call ASW_FAS_initialize()
+			$call ASW_FACS_initialize()
+			$call ASW_DCS_initialize()
+			$call ASW_ACS_initialize()
+			$call ASW_FOME_initialize()
+			$call ASW_RACS_initialize()
+			$call ASW_ROME_initialize()
+			$call ASW_SSS_initialize()
+		}
+
+		$timestep 0 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 100 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 1
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 1
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 0
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 200 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 22
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 300 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 1
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 0
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 400 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 2
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 0
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 500 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 3
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 0
+				VfRSTC_RrACSetTempSts_C = 0
+			}
+		}
+
+		$timestep 600 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 23
+				VfINP_RACSetTReqCkd_C = 24
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 700 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 2
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 2
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 31.5
+				VfINP_FACRightSetTReqCkd_C = 31.5
+				VfINP_RACSetTReqCkd_C = 31.5
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 800 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 0
+				VbRAS_RrACAUTOSwSts_flg = 0
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 0
+				VeROME_RrACOtltMdExp_enum = 0
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 900 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 1
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 0
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 0
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+
+		$timestep 1000 ms {
+			$inputs {
+				VeINP_ACSwtReqCkd_enum = 0
+				VeINP_AirIntkModReqCkd_enum = 0
+				VeINP_DefrstSwtReqCkd_enum = 0
+				VeINP_FACAutoSwtReqCkd_enum = 0
+				VeINP_FACBlwrGearManReqCkd_enum = 0
+				VeINP_FACOutlModReqCkd_enum = 0
+				VeINP_FACSwtReqCkd_enum = 0
+				VeINP_RACAutoSwtReqCkd_enum = 0
+				VeINP_RACBlwrGearManReqCkd_enum = 0
+				VeINP_RACOutlModReqCkd_enum = 0
+				VeINP_RACSwtReqCkd_enum = 0
+				VeINP_SyncwtReqCkd_enum = 0
+				VfINP_FACLeftSetTReqCkd_C = 0
+				VfINP_FACRightSetTReqCkd_C = 0
+				VfINP_RACSetTReqCkd_C = 0
+			}
+			$outputs {
+				VbACS_ACSwSts_flg = 1
+				VbDCS_DfstSwSts_flg = 0
+				VbFACS_FrtACSwSts_flg = 1
+				VbFAS_FrtACAUTOSwSts_flg = 0
+				VbRACS_RrACSwSts_flg = 1
+				VbRAS_RrACAUTOSwSts_flg = 1
+				VbSS_SYNCSwSts_flg = 0
+				VeFBGE_FrtACBlwrGearExp_enum = 3
+				VeFOME_FrtACOtltMdExp_enum = 0
+				VeIME_ACInltMdExp_enum = 1
+				VeRBGE_RrACBlwrGearExp_enum = 10
+				VeROME_RrACOtltMdExp_enum = 3
+				VfFSTC_FrtACLeftSetTempSts_C = 22
+				VfFSTC_FrtACRightSetTempSts_C = 23
+				VfRSTC_RrACSetTempSts_C = 24
+			}
+		}
+	}
+}
